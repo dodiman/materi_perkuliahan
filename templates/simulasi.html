@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<title>simulasi</title>
+</head>
+<body>
+<div class="row">
+	
+</div>
+<form method="post" enctype="multipart/form-data" action={% url 'update_arsip_myapi' id=1 %}>
+	{% csrf_token %}
+	{{ form_update_arsip.as_p }}
+
+	<button type="submit">simpan</button>
+</form>
+{% for value in mapel %}
+	<h2>{{ value.nama_pelajaran }}</h2>
+	<a href="{{ value.file_pelajaran.url }}">download file</a>
+{% endfor %}
+</body>
+</html>

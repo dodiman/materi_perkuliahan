@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>sementara</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+     <!--  <input type="hidden" name="csrfmiddlewaretoken" value="aeHFC2Opz6UqhRFWUPOYy1UqdIT7lzVNd9Td3ktCYkiuB0qXFyx3BL4y0ujTGI6P"> -->
+     {% csrf_token %}
+      <p>
+        This importer will import the following fields: 
+        <code>id, kode, nama, produsen, jumlah_keluar, stok, waktu</code>
+      </p>
+
+      <fieldset class="module aligned">
+        
+          <div class="form-row">
+            
+
+            <label for="id_import_file">File to import:</label>
+
+            <input type="file" name="import_file" required id="id_import_file">
+
+            
+          </div>
+        
+          <div class="form-row">
+            
+
+            <label for="id_input_format">Format:</label>
+
+            <select name="input_format" required id="id_input_format">
+  <option value="" selected>---</option>
+
+  <option value="CSV">csv</option>
+
+  <option value="1">xls</option>
+
+  <option value="xlsx">xlsx</option>
+
+  <option value="3">tsv</option>
+
+  <option value="4">json</option>
+
+  <option value="5">yaml</option>
+
+</select>
+
+            
+          </div>
+        
+      </fieldset>
+
+      <div class="submit-row">
+        <input type="submit" class="default" value="Submit">
+      </div>
+    </form>
+
+    <hr>
+<h2>Halaman import data obat</h2>
+<form method="post" enctype="multipart/form-data" action="{% url 'mydata_myapi' %}">
+  <input required="" type="file" name="importData" >
+  <select name="file-format" class="form-control my-3">
+    <option selected>pilih format</option>
+    <option>xlsx</option>
+    <option>csv</option>
+  </select>
+  <button type="submit">oke</button>
+  
+</form>
+
+ <hr>
+<h2>Halaman import data yang kedua</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input required="" type="file" name="importData" >
+  <select name="file-format" class="form-control my-3">
+    <option selected>pilih format</option>
+    <option>xlsx</option>
+    <option>csv</option>
+  </select>
+  <button type="submit">oke</button>
+  
+</form>
+</body>
+</html>
